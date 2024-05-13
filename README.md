@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+#신대방삼거리역 근처 갈 만한 술집을 추천하는 웹
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

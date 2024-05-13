@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { KAKAOPMAP} from './JS/index.js';
+import Container from 'react-bootstrap/Container';
 
 function App() {
+  
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container fluid>
+      <div className='container-fluid'>
+        {/* 카카오맵 그리드 */}
+        <div className='row'>
+          <div className='col mt-3 mb-3'>
+            <KAKAOPMAP />
+          </div>
+
+        </div>
+      </div>
+    </Container>
   );
 }
 
