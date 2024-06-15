@@ -24,6 +24,18 @@ function MapComponent() {
     setMap(newMap);
   }, []);
 
+
+  //찜 기능 상태 저장
+  useEffect(() => {
+    const savedFavoritedLocations = JSON.parse(localStorage.getItem('favoritedLocations')) || {};
+    setFavoritedLocations(savedFavoritedLocations);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favoritedLocations', JSON.stringify(favoritedLocations));
+  }, [favoritedLocations]);
+  
+
   // 찜한 위치 마커 이미지 변경
   useEffect(() => {
     const favoriteMarkerImage = new kakao.maps.MarkerImage(
@@ -51,6 +63,7 @@ function MapComponent() {
     const locationsData = handleTabClick(category);
     if (map && locationsData.length > 0) {
       markers.forEach(marker => marker.setMap(null)); // 기존 마커 제거
+      setMarkers([]); // 기존 마커 배열 비우기
       
       const newMarkers = locationsData.map(data => {
         const marker = new kakao.maps.Marker({
@@ -141,7 +154,7 @@ function MapComponent() {
       />
 
       {/* 지도 영역 */}
-      <div id="map" style={{ width: '100%', height: '90vh' }}></div>
+      <div id="map" style={{ width: '100%', height: '80vh' }}></div>
     </div>
   );
 }

@@ -1,0 +1,42 @@
+.menu-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .menu-link a {
+    margin-right: 60px; /* 각 링크 사이의 간격을 조절합니다. */
+    text-decoration: none; /* 밑줄 제거 */
+    color: #000; /* 링크 색상 변경 */
+    position: relative; /* 부모 요소 기준으로 자식 요소를 위치시키기 위해 필요합니다. */
+  }
+  
+  .menu-link a::before,
+  .menu-link a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px; /* 줄의 높이 조절 가능 */
+    background-color: #000; /* 줄의 색상 조절 가능 */
+    transition: width 0.3s ease;
+  }
+  
+  .menu-link a::before {
+    transform: translateX(-50%);
+  }
+  
+  .menu-link a::after {
+    transform: translateX(-50%);
+  }
+  
+  .menu-link a:hover::before,
+  .menu-link a:hover::after {
+    width: 100%;
+  }
+  
+  .menu-link a:last-child {
+    margin-right: 0; /* 마지막 링크의 오른쪽 마진을 없앱니다. */
+  }
+  
